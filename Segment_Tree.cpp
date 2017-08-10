@@ -5,11 +5,13 @@ using namespace std;
 
 const double EPS = 1e-6;
 
-int n, segtree_base[maxn], segtree[4*maxn];
+int n, segtree_base[maxn], segtree[4*maxn], rep[maxn];
 
 void build(int p, int L, int R){
-	if(L == R) segtree[p] = segtree_base[L];
-	else{
+	if(L == R) {
+		segtree[p] = segtree_base[L];
+		rep[L] = p;
+	} else{
 		int mid = (L+R)/2;
 		build(p << 1, L, mid);
 		build((p << 1)+1, mid+1, R);
@@ -29,6 +31,12 @@ int rmq(int p, int i, int j, int L, int R){
 	if(p2 == -1) return p1;
 	
 	return max(p1,p2);
+}
+
+void point_update(int u, int v){
+	if(u == 0) return;
+	segtree[u] = max(segtree[u], v);
+	point_update(u/2);
 }
 
 int main(){
