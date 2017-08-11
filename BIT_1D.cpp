@@ -19,7 +19,7 @@ int query(int k){
 }
 
 int range_query(int i, int j){
-	return query(j) - (i == 1 ? 0:query(i-1));
+	return query(j) - query(i-1);
 }
 
 int main(){
