@@ -9,7 +9,7 @@ const int INF = 0x3f3f3f3f;
 
 int n,m;
 vector<int> adj[maxn];
-queue<int> ts;
+vector<int> ts;
 bool vis[maxn];
 
 void dfs(int i){
@@ -19,7 +19,7 @@ void dfs(int i){
 			dfs(adj[i][j]);
 		}
 	}
-	ts.push(i);
+	ts.push_back(i);
 }
 
 int main(){
@@ -34,5 +34,6 @@ int main(){
 			dfs(i);
 		}
 	}
+	reverse(ts.begin(), ts.end());
 	return 0;
 }
