@@ -20,7 +20,7 @@ void build(){
 }
 
 int range_query(int i, int j){
-	int sz = (j-i == 0 ? 0:log2(j-i));
+	int sz = log2(j-i+1);
 	return max(Sparse_Table[sz][i],Sparse_Table[sz][j+1-(1 << sz)]);
 }
 
