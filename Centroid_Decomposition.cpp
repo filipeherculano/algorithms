@@ -33,7 +33,6 @@ int Find_Centroid(int i, int p, int tot){
 }
 
 void build(int i, int p){
-	memset(Size,0,sizeof Size);
 	dfs(i,-1);
 	int u = Find_Centroid(i, -1, Size[i]);
 	cut[u] = true;
