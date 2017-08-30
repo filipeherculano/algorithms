@@ -50,7 +50,7 @@ int main(){
 	scanf("%d",&n);
 	for(int i = 0; i < n-1; i++){
 		int a,b;
-		scanf("%d %d",&a,&b); a--; b--;
+		scanf("%d %d",&a,&b);
 		adj[a].push_back(b);
 		adj[b].push_back(a);
 	}
