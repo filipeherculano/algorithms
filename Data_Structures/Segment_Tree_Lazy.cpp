@@ -3,8 +3,6 @@
 
 using namespace std;
 
-const double EPS = 1e-6;
-
 int n, segtree_base[maxn], segtree[4*maxn], lazy[4*maxn];
 
 void build(int p, int L, int R){
@@ -69,13 +67,3 @@ int main(){
 	build(1,0,n-1);
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
