@@ -43,10 +43,5 @@ int main(){
 	scanf("%d",&n);
 	for(int i = 0; i < n; i++) scanf("%d",&segtree_base[i]);
 	build(1,0,n-1);
-	for(int i = 0; i < 3; i++) {
-		int l,r,val; 
-		scanf("%d %d %d",&l,&r,&val);
-		cout << rmq(1,l,r,0,n-1) << endl;
-	}
 	return 0;
 }
