@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-
 #define LSOne(S) (S & (-S))
 #define maxn 1111
 
@@ -23,20 +21,6 @@ int query(int l, int c){
 
 int rmq(int ux, int uy, int lx, int ly){
 	return query(lx,ly)-query(ux-1,ly)-query(lx,uy-1)+query(ux-1,uy-1);
-}
-
-int main(){
-	scanf("%d %d",&n,&m);
-	for(int i = 1; i <= n; i++){
-		for(int j = 1; j <= m; j++){
-			int temp; scanf("%d",&temp);
-			add(i,j,temp);
-		}
-	}
-	int ux,uy,lx,ly;
-	scanf("%d %d %d %d", &ux,&uy,&lx,&ly);
-	cout << rmq(ux,uy,lx,ly) << endl;
-	return 0;
 }
 
 

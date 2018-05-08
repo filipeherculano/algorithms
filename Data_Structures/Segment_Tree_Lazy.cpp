@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #define maxn 11111
 
 using namespace std;
@@ -60,5 +59,3 @@ int rmq(int p, int i, int j, int L, int R){
 	
 	return max(p1,p2);
 }
-
-int main(){ scanf("%d",&n); for(int i = 0; i < n; i++) scanf("%d",&segtree_base[i]);build(1,0,n-1); return 0;}

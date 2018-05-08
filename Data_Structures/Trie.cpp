@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-
 using namespace std;
 
 int n,m,cur;
@@ -39,21 +37,4 @@ bool query(string a){
 		else return false;
 	}
 	return Trie[d].second;
-}
-
-int main(){
-	cur = 1;
-	vector<int> v(26,0);
-	Trie.push_back({v,0});
-	scanf("%d %d%*c",&n,&m);
-	for(int i = 0; i < n; i++){
-		cin >> s;
-		add(s);
-	}
-	for(int i = 0; i < m; i++){
-		cin >> s;
-		if(query(s)) puts("Found");
-		else puts("Not Found");
-	}
-	return 0;
 }

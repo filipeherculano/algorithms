@@ -1,10 +1,7 @@
-#include <bits/stdc++.h>
 #define maxn 111111
 #define LSOne(S) (S & (-S))
 
 using namespace std;
-
-const double EPS = 1e-6;
 
 int n, Centroid_Tree[maxn], Size[maxn];
 vector<int> adj[maxn];
@@ -42,18 +39,4 @@ void build(int i, int p){
 			build(adj[u][j], u);
 		}
 	}
-}
-
-int main(){
-	memset(Centroid_Tree,-1, sizeof Centroid_Tree);
-	
-	scanf("%d",&n);
-	for(int i = 0; i < n-1; i++){
-		int a,b;
-		scanf("%d %d",&a,&b);
-		adj[a].push_back(b);
-		adj[b].push_back(a);
-	}
-	build(0,-1);
-	return 0;
 }

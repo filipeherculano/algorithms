@@ -1,11 +1,7 @@
-#include <bits/stdc++.h>
-
 #define maxn 2000000
 
-using namespace std;
-
 int n, next_node;
-int esq[30*maxn],dir[30*maxn],st[30*maxn],root[30*	maxn];
+int esq[30*maxn],dir[30*maxn],st[30*maxn],root[30*maxn];
 
 int build(int L, int R){
 	int p = next_node++;

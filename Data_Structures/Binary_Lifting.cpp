@@ -1,10 +1,7 @@
-#include <bits/stdc++.h>
 #define maxn 111111
 #define LSOne(S) (S & (-S))
 
 using namespace std;
-
-const double EPS = 1e-6;
 
 int n, q, Depth[maxn], Table[20][maxn], maxEdge[20][maxn], minEdge[20][maxn], D;
 vector<int> adj[maxn], wadj[maxn];
@@ -84,26 +81,4 @@ int max_query(int u, int v){
 		v = walk(v, LSOne(k));	
 	}
 	return res;
-}
-
-int main(){
-	memset(Table, -1, sizeof Table);
-	memset(minEdge, 0x3f3f3f3f, sizeof minEdge);
-
-	scanf("%d %d",&n,&q);
-	for(int i = 1; i < n ; i++){
-		int a,b,w;
-		scanf("%d %d %d",&a,&b,&w); a--; b--;
-		adj[a].push_back(b); wadj[a].push_back(w);
-		adj[b].push_back(a); wadj[b].push_back(w);
-	}
-	dfs(0,-1,0,0);
-	build();
-	for(int i = 0; i < q; i++){
-		int a,b;
-		scanf("%d %d",&a,&b); a--; b--;
-		cout << "MIN: " << min_query(a,b) << endl;
-		cout << "MAX: " << max_query(a,b) << endl;
-	}
-	return 0;
 }

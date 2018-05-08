@@ -1,9 +1,6 @@
-#include <bits/stdc++.h>
 #define maxn 11111
 
 using namespace std;
-
-const double EPS = 1e-6;
 
 int n, segtree_base[maxn], segtree[4*maxn], rep[maxn];
 
@@ -37,11 +34,4 @@ void point_update(int u, int v){
 	if(u == 0) return;
 	segtree[u] = max(segtree[u], v);
 	point_update(u/2,v);
-}
-
-int main(){
-	scanf("%d",&n);
-	for(int i = 0; i < n; i++) scanf("%d",&segtree_base[i]);
-	build(1,0,n-1);
-	return 0;
 }
