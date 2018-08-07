@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
-#define maxn 1111111
 
 using namespace std;
-
-const int INF = 0x3f3f3f3f;
-const double EPS = 1e-6;
 
 int main(){
 	int num;

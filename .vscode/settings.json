@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "functional": "cpp",
+        "*.ipp": "cpp",
+        "array": "cpp",
+        "slist": "cpp",
+        "initializer_list": "cpp",
+        "*.tcc": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp"
+    }
+}

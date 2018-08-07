@@ -1,10 +1,15 @@
+/**
+ * @brief Simple sieve application that discovers prime numbers
+ * in a certain range.
+ * 
+ * @file Sieve_of_Erathostenes.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-08-06
+ */
 #include <bits/stdc++.h>
 #define maxn 1111111
 
 using namespace std;
-
-const int INF = 0x3f3f3f3f;
-const double EPS = 1e-6;
 
 bool is_prime[maxn];
 vector<int> primes;
