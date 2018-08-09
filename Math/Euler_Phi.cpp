@@ -1,5 +1,6 @@
 /**
- * @brief 
+ * @brief Euler_phi application that answers how many numbers
+ * from 1 to N-1 are co-primes together with N.
  * 
  * @file Euler_Phi.cpp
  * @author Filipe Herculano Rocha
