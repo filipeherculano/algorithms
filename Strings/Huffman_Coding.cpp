@@ -1,5 +1,5 @@
 /**
- * @brief This program creates the Huffman Coding, used to comprise 
+ * @brief This program creates the Huffman Coding, used to compress 
  * strings into smaller binary values.
  * 
  * @file Huffman_Coding.cpp
