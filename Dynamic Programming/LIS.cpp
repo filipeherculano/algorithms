@@ -1,10 +1,15 @@
+/**
+ * @brief This code implements a simple example of the Longest Increasing
+ * Subsequence (LIS), in O(N * log N) complexity.
+ * 
+ * @file LIS.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-08-19
+ */
 #include <bits/stdc++.h>
 #define maxn 1111111
 
 using namespace std;
-
-const int INF = 0x3f3f3f3f;
-const double EPS = 1e-6;
 
 int n,v[maxn];
 vector<int> answer;
