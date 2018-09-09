@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int n, q, Depth[maxn], Table[20][maxn], maxEdge[20][maxn], minEdge[20][maxn], D;
+int n, Depth[maxn], Table[20][maxn], maxEdge[20][maxn], minEdge[20][maxn], D;
 vector<int> adj[maxn], wadj[maxn];
 
 void dfs(int i, int p, int d, int dist){

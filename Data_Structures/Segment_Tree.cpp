@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int n, segtree_base[maxn], segtree[4*maxn], rep[maxn];
+int segtree_base[maxn], segtree[4*maxn], rep[maxn];
 
 void build(int p, int L, int R){
 	if(L == R) {

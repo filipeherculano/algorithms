@@ -21,10 +21,8 @@ void build(int p, int L, int R){
 
 void push_down(int p, int val){
 	segtree[p] += val;
-	if(L != R){
-		lazy[p << 1] += val;
-		lazy[(p << 1)+1] += val;			
-	}
+	lazy[p << 1] += val;
+	lazy[(p << 1)+1] += val;			
 }
 
 void update(int p, int i, int j, int L, int R, int val){

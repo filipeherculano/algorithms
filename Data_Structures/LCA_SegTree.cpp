@@ -7,19 +7,17 @@
 
 using namespace std;
 
-int n, q,depth[maxn], SegTree[4*maxn], rep[maxn];
+int depth[maxn], SegTree[4*maxn], rep[maxn];
 vector<int> adj[maxn], Linear_Tree;
 
-void Tree_Linearization(int i, int p, int d){
-	depth[i] = d;
-	rep[i] = Linear_Tree.size();
-	Linear_Tree.push_back(i);
-	for(int j = 0; j < adj[i].size(); j++){
-		if(p != adj[i][j]){
-			Tree_Linearization(adj[i][j], i, d+1);
-			Linear_Tree.push_back(i);
-		}
-	}
+void Tree_Linearization(int u, int p, int d){
+	depth[u] = d;
+	rep[u] = Linear_Tree.size();
+	Linear_Tree.push_back(u);
+	for(auto & v : adj[u])
+		if(p != v)
+			Tree_Linearization(v, u, d+1);
+	Linear_Tree.push_back(u);
 }
 
 void build(int p, int L, int R){
@@ -38,7 +36,7 @@ int lca(int p, int i, int j, int L, int R){
 	if(i <= L && R <= j) return SegTree[p];
 	
 	int mid = (L+R)/2;
-	int p1 = lca(p << 1,i,j, L, mid);
+	int p1 = lca((p << 1),i,j, L, mid);
 	int p2 = lca((p << 1)+1,i,j, mid+1, R);
 	
 	if(p1 == -1) return p2;
@@ -47,13 +45,9 @@ int lca(int p, int i, int j, int L, int R){
 	return (depth[p1] < depth[p2] ? p1:p2);
 }
 
-int main(){
-	Tree_Linearization(1,-1,0); // rooted at 1
+int build_environment(){
+	Tree_Linearization(0,-1,0); // rooted at 0
 	build(1,0,Linear_Tree.size()-1);
-	for(int i = 0; i < q; i++){
-		int a,b;
-		scanf("%d %d",&a,&b);
-		printf("%d %d = %d\n",a,b,lca(1,min(rep[a],rep[b]),max(rep[a],rep[b]),0,Linear_Tree.size()-1));
-	}
-	return 0;
+	// Querie example
+	// lca(1, rep[r], rep[l], 0, Linear_Tree.size()-1)
 }

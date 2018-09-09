@@ -1,3 +1,8 @@
+/**
+ * @file Centroid_Decomposition.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 111111
 #define LSOne(S) (S & (-S))
 

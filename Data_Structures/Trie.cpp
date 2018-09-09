@@ -15,10 +15,11 @@ void add(string a){
 		if(Trie[node].first[nxt] == 0) {
 			vector<int> v(26,0);
 			Trie[node].first[nxt] = Trie.size();
-			Trie.push_back({v,1});
+			Trie.push_back({v,0});
 		}
 		node = Trie[node].first[nxt];
 	}
+	Trie[node].second++;
 }
 
 void rmv(string a){
