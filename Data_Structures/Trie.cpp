@@ -1,40 +1,48 @@
+/**
+ * @file Trie.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 using namespace std;
 
-int n,m,cur;
-string s;
 vector< pair<vector<int>, int> > Trie;
 
 void add(string a){
-	int d = 0;
-	Trie[d].second++;
+	int node = 0;
 	for(int i = 0; i < (int)a.size(); i++){
-		int c = a[i]-'a';
-		if(Trie[d].first[c] == 0) {
+		Trie[node].second++;
+		int nxt = a[i]-'a';
+		if(Trie[node].first[nxt] == 0) {
 			vector<int> v(26,0);
-			Trie[d].first[c] = cur++;
-			Trie.push_back({v,0});
+			Trie[node].first[nxt] = Trie.size();
+			Trie.push_back({v,1});
 		}
-		d = Trie[d].first[c];
-		Trie[d].second++;
+		node = Trie[node].first[nxt];
 	}
 }
 
 void rmv(string a){
-	int d = 0;
+	int node = 0;
+	Trie[node].second--;
 	for(int i = 0; i < (int)a.size(); i++){
-		int c = a[i]-'a';
-		Trie[d].second--;
-		d = Trie[d].first[c];
+		int nxt = a[i]-'a';
+		node = Trie[node].first[nxt];
+		Trie[node].second--;
 	}
-	Trie[d].second--;
 }
 
 bool query(string a){
-	int d = 0;
+	int node = 0;
 	for(int i = 0; i < (int)a.size(); i++){
-		int c = a[i]-'a';
-		if(Trie[d].first[c] && Trie[d].second) d = Trie[d].first[c];
+		int nxt = a[i]-'a';
+		if(Trie[node].second && Trie[node].first[nxt]) 
+			node = Trie[node].first[nxt];
 		else return false;
 	}
-	return Trie[d].second;
+	return true;
+}
+
+void build(){
+	vector<int> root(26,0);
+	Trie[0].push_back({root,0});
 }

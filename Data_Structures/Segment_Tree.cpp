@@ -1,3 +1,8 @@
+/**
+ * @file Segment_Tree.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 11111
 
 using namespace std;

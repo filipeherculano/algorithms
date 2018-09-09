@@ -1,13 +1,14 @@
-#include <bits/stdc++.h>
+/**
+ * @file LCA_SegTree.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 1111111
 
 using namespace std;
 
-const double EPS = 1e-6;
-
-int n , q,depth[maxn], SegTree[4*maxn], rep[maxn];
-vector<int> adj[maxn];
-vector<int> Linear_Tree;
+int n, q,depth[maxn], SegTree[4*maxn], rep[maxn];
+vector<int> adj[maxn], Linear_Tree;
 
 void Tree_Linearization(int i, int p, int d){
 	depth[i] = d;
@@ -47,13 +48,6 @@ int lca(int p, int i, int j, int L, int R){
 }
 
 int main(){
-	scanf("%d %d",&n,&q);
-	for(int i = 0; i < n-1; i++){
-		int a,b;
-		scanf("%d %d",&a,&b);
-		adj[a].push_back(b);
-		adj[b].push_back(a);
-	}
 	Tree_Linearization(1,-1,0); // rooted at 1
 	build(1,0,Linear_Tree.size()-1);
 	for(int i = 0; i < q; i++){

@@ -1,8 +1,13 @@
+/**
+ * @file Segment_Tree_Lazy.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 11111
 
 using namespace std;
 
-int n, segtree_base[maxn], segtree[4*maxn], lazy[4*maxn];
+int segtree_base[maxn], segtree[4*maxn], lazy[4*maxn];
 
 void build(int p, int L, int R){
 	if(L == R) segtree[p] = segtree_base[L];
@@ -14,22 +19,22 @@ void build(int p, int L, int R){
 	}
 }
 
+void push_down(int p, int val){
+	segtree[p] += val;
+	if(L != R){
+		lazy[p << 1] += val;
+		lazy[(p << 1)+1] += val;			
+	}
+}
+
 void update(int p, int i, int j, int L, int R, int val){
 	if(lazy[p]){
-		segtree[p] += lazy[p];
-		if(L != R){
-			lazy[p << 1] += lazy[p];
-			lazy[(p << 1)+1] += lazy[p];			
-		}
+		push_down(p, lazy[p]);
 		lazy[p] = 0;
 	}
 	if(j < L || R < i) return;
 	if(i <= L && R <= j){
-		segtree[p] += val;
-		if(L != R){
-			lazy[p << 1] += val;
-			lazy[(p << 1)+1] += val;			
-		}
+		push_down(p, val);
 		return;
 	}
 	int mid = (L+R)/2;
@@ -41,11 +46,7 @@ void update(int p, int i, int j, int L, int R, int val){
 int rmq(int p, int i, int j, int L, int R){
 	if(j < L || R < i) return -1;
 	if(lazy[p]){
-		segtree[p] += lazy[p];
-		if(L != R){
-			lazy[p << 1] += lazy[p];
-			lazy[(p << 1)+1] += lazy[p];			
-		}
+		push_down(p, lazy[p]);
 		lazy[p] = 0;
 	}
 	if(i <= L && R <= j) return segtree[p];

@@ -1,3 +1,8 @@
+/**
+ * @file BIT_2D.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define LSOne(S) (S & (-S))
 #define maxn 1111
 
@@ -22,17 +27,3 @@ int query(int l, int c){
 int rmq(int ux, int uy, int lx, int ly){
 	return query(lx,ly)-query(ux-1,ly)-query(lx,uy-1)+query(ux-1,uy-1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

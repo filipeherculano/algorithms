@@ -1,12 +1,15 @@
+/**
+ * @file Sparse_Table.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 1111111
 #define maxnlog 22
 
 using namespace std;
 
-const double EPS = 1e-6;
-
 // We can use to do range queries (max,min,gcd,lcm,LCA)
-int n, q, Sparse_Table[maxnlog][maxn];
+int n, Sparse_Table[maxnlog][maxn];
 
 void build(){
 	for(int i = 1; (1 << i) <= n; i++){

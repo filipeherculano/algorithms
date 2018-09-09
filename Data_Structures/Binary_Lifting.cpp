@@ -1,25 +1,16 @@
-/**
- * @brief This code applies a simple application of the Binary Lifting technique
- *  using Lowest Common Ancestor on a Tree and finding the maximum/minimum edge
- *  weight on a path between two nodes on the Tree.
- * 
+/** 
  * @file Binary_Lifting.cpp
  * @author Filipe Herculano Rocha
  * @date 2018-07-25
  */
-#include <bits/stdc++.h>
-
 #define maxn 100000
 #define LSOne(S) (S & (-S))
 
 using namespace std;
 
-// # [n]odes, # [q]ueries, [Depth] of each node, Binary lifting [Table], [maxEdge] table, [minEdge] table, Maximum [D]epth
 int n, q, Depth[maxn], Table[20][maxn], maxEdge[20][maxn], minEdge[20][maxn], D;
-// [Adj]acency list, [W]eight [adj]acency list 
 vector<int> adj[maxn], wadj[maxn];
 
-// Pre compute the depth on every node and the imidiate parent of each node.
 void dfs(int i, int p, int d, int dist){
 	Depth[i] = d;
 	Table[0][i] = p;
@@ -29,7 +20,6 @@ void dfs(int i, int p, int d, int dist){
 		if (adj[i][j] != p) dfs(adj[i][j], i, d+1, wadj[i][j]);
 }
 
-// Builds binary lifting tables
 void build(){
 	for (int i = 1; i <= D; i++){
 		for (int j = 0; j < n; j++){
@@ -43,7 +33,6 @@ void build(){
 	}
 }
 
-// Waks current node k steps root-wards
 int walk(int i, int k){
 	for (; k && i != -1; k -= LSOne(k)) i = Table[(int)log2(LSOne(k))][i];
 	return i;
