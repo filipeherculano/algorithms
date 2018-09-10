@@ -1,25 +1,24 @@
+/**
+ * @file Topological_Sort_DFS.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #include <bits/stdc++.h>
 #define maxn 11111
 #define ii pair<int,int>
 
 using namespace std;
 
-const double EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-
 int n,m;
-vector<int> adj[maxn];
-vector<int> ts;
+vector<int> adj[maxn], ts;
 bool vis[maxn];
 
-void dfs(int i){
-	vis[i] = true;
-	for(int j = 0; j < adj[i].size(); j++){
-		if(!vis[adj[i][j]]){
-			dfs(adj[i][j]);
-		}
-	}
-	ts.push_back(i);
+void dfs(int u){
+	vis[u] = true;
+	for(auto & v : adj[u])
+		if(!vis[v])
+			dfs(v);
+	ts.push_back(u);
 }
 
 int main(){
@@ -29,11 +28,10 @@ int main(){
 		scanf("%d %d",&a, &b);
 		adj[a].push_back(b);
 	}
-	for(int i = 0; i < n; i++){
-		if(!vis[i]){
+	for(int i = 0; i < n; i++)
+		if(!vis[i])
 			dfs(i);
-		}
-	}
+
 	reverse(ts.begin(), ts.end());
 	return 0;
 }

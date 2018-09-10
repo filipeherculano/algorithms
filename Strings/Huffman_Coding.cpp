@@ -1,19 +1,15 @@
 /**
- * @brief This program creates the Huffman Coding, used to compress 
- * strings into smaller binary values.
- * 
  * @file Huffman_Coding.cpp
  * @author Filipe Herculano Rocha
  * @date 2018-08-19
  */
-#include <bits/stdc++.h>
 #define maxn 333
 #define ii pair<int,int>
 
 using namespace std;
 
 string s; // Input must be lower case letters from 'a' to 'z'
-int n,bucket[26], cur;
+int n, cur, bucket[26];
 bool vis[maxn];
 vector<int> tree[maxn];
 map<char,string> encript;
@@ -32,7 +28,7 @@ void dfs(int u, string bitmask){
     return;
 }
 
-int main(){
+int build(){
     cur = 26;
     cin >> n >> s;
     for(int i = 0; i < n; i++) bucket[s[i]-'a']++;
@@ -50,5 +46,4 @@ int main(){
         pq.push({(a.first + b.first), cur++});
     }
     dfs(cur-1,"");
-    return 0;
 }

@@ -1,13 +1,8 @@
 /**
- * @brief Euler_phi application that answers how many numbers
- * from 1 to N-1 are co-primes together with N.
- * 
  * @file Euler_Phi.cpp
  * @author Filipe Herculano Rocha
  * @date 2018-08-06
  */
-#include <bits/stdc++.h>
-
 using namespace std;
 
 long long euler_phi(long long n){
@@ -21,9 +16,4 @@ long long euler_phi(long long n){
 	if(n > 1) result -= result/n;
 	return result;
 }
-
-int main(){
-	long long n;
-	while(cin >> n) cout << euler_phi(n)/2 << endl;
-    return 0;
-}
+// euler_phi(n)/2

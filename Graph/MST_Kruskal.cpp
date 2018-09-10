@@ -1,9 +1,12 @@
+/**
+ * @file MST_Kruskal.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #include <bits/stdc++.h>
 #define maxn 11111
 
 using namespace std;
-
-const double EPS = 1e-6;
 
 int n,m,p[maxn];
 vector<int> adj[maxn], wadj[maxn];

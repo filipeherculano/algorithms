@@ -1,12 +1,13 @@
-#include <bits/stdc++.h>
+/**
+ * @file Binary_Search.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 11111
 
 using namespace std;
 
-const double EPS = 1e-6;
-
-int n;
-int array_int[maxn];
+int n, array_int[maxn];
 double array_double[maxn];
 
 int binary_search(int num){
@@ -29,12 +30,4 @@ int binary_search_double(double num){
 		else r = b;
 	}
 	return -1;
-}
-
-int main(){
-	scanf("%d",&n);
-	for(int i = 0; i < n; i++) scanf("%d", &array_int[i]);
-	//for(int i = 0; i < n; i++) scanf("%d", &array_double[i]);
-	//sort(array_int, array_int+n);
-	return 0;
 }

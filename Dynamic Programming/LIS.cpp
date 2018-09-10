@@ -1,7 +1,4 @@
 /**
- * @brief This code implements a simple example of the Longest Increasing
- * Subsequence (LIS), in O(N * log N) complexity.
- * 
  * @file LIS.cpp
  * @author Filipe Herculano Rocha
  * @date 2018-08-19

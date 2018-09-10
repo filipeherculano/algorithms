@@ -1,5 +1,8 @@
-#include <bits/stdc++.h>
-
+/**
+ * @file Needleman-Wunsch_Edit_Distance.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 using namespace std;
 
 int n,m;

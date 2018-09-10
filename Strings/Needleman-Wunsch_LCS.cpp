@@ -1,8 +1,9 @@
-#include <bits/stdc++.h>
-
+/**
+ * @file Needleman-Wunsch_LCS.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 using namespace std;
-
-const int INF = 0x3f3f3f3f;
 
 int n,m;
 string a,b;

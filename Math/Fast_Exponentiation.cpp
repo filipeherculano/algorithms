@@ -1,11 +1,12 @@
-#include <bits/stdc++.h>
+/**
+ * @file Fast_Exponentiation.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 11111
 #define ii pair<int,int>
 
 using namespace std;
-
-const double EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
 
 long long fast_exp(long long b, long long exp){
 	long long res = 1;
@@ -15,11 +16,4 @@ long long fast_exp(long long b, long long exp){
 		exp /= 2;
 	}
 	return res;
-}
-
-int main(){
-	long long b,exp;
-	scanf("%lld %lld",&b,&exp);
-	printf("%lld\n", fast_exp(b,exp));
-	return 0;
 }

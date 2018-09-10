@@ -1,9 +1,12 @@
+/**
+ * @file TSP.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #include <bits/stdc++.h>
 #define maxn 17
 
 using namespace std;
-
-const double EPS = 1e-6;
 
 int n,m,s,TSP[1 << maxn][maxn],mat[maxn][maxn];
 

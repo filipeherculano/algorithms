@@ -1,9 +1,12 @@
+/**
+ * @file Transitive_Closure.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #include <bits/stdc++.h>
 #define maxn 1111
 
 using namespace std;
-
-const double EPS = 1e-6;
 
 int n,m,adj[maxn][maxn];
 

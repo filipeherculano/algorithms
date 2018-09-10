@@ -1,11 +1,13 @@
+/**
+ * @file Topological_Sort_Kahn.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #include <bits/stdc++.h>
 #define maxn 11111
 #define ii pair<int,int>
 
 using namespace std;
-
-const double EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
 
 int n,m,deg[maxn];
 vector<int> adj[maxn];
@@ -20,20 +22,15 @@ int main(){
 		deg[b]++;
 	}
 	queue<int> aux;
-	for(int i = 0; i < n; i++){
-		if(deg[i] == 0){
-			ts.push(i);
-			aux.push(i);
-		}
-	}
+	for(int i = 0; i < n; i++)
+		if(deg[i] == 0) aux.push(i);
+
 	while(!aux.empty()){
 		int u = aux.front(); aux.pop();
-		for(int i = 0; i < adj[u].size(); i++){
-			deg[adj[u][i]]--;
-			if(deg[adj[u][i]] == 0){
-				ts.push(adj[u][i]);
-				aux.push(adj[u][i]);
-			}
+		ts.push_back(u);
+		for(auto & v : adj[u]){
+			deg[v]--;
+			if(deg[v] == 0) aux.push(v);
 		}
 	}
 	return 0;

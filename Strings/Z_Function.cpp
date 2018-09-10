@@ -1,9 +1,11 @@
-#include <bits/stdc++.h>
+/**
+ * @file Z_Function.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 1111111
 
 using namespace std;
-
-const double EPS = 1e-6;
 
 int n,m,z[maxn];
 string text, pattern, join;
@@ -27,17 +29,15 @@ void Z_Function(){
 	}
 }
 
-int main(){
+int build(){
 	cin >> pattern >> text;
 	n = text.size();
 	m = pattern.size();
 	join = pattern + "#" + text;
 	Z_Function();
-	for(int i = 0; i < join.size(); i++) {
-		if(z[i] == m){
+	for(int i = 0; i < join.size(); i++) 
+		if(z[i] == m)
 			printf("Match at %d \n", i-m-1);
-		}
-	}
 	return 0;
 }
 

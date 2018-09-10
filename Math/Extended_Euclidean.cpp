@@ -1,5 +1,8 @@
-#include <bits/stdc++.h>
-
+/**
+ * @file Extended_Euclidean.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 using namespace std;
 
 int Extended_Euclidean(int a, int b, int &x, int &y){
@@ -13,11 +16,4 @@ int Extended_Euclidean(int a, int b, int &x, int &y){
     x = y1 - (b/a) * x1;
     y = x1;
     return d;
-}
-
-int main(){
-    int a,b,x,y;
-    scanf("%d %d", &a, &b);
-    Extended_Euclidean(a,b,x,y);
-    return 0;
 }

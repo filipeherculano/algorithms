@@ -1,7 +1,4 @@
 /**
- * @brief This program is an example of the Two Pointer technique,
- * used to solve Subarray Sum problem in O(n) time complexity
- * 
  * @file Two_Pointers.cpp
  * @author Filipe Herculano Rocha
  * @date 2018-08-20

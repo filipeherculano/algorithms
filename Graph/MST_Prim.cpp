@@ -1,6 +1,4 @@
 /**
- * @brief 
- * 
  * @file MST_Prim.cpp
  * @author Filipe Herculano Rocha
  * @date 2018-08-14
@@ -10,17 +8,16 @@
 
 using namespace std;
 
-int n, m, mst;
+int mst;
 vector<int> adj[maxn], wadj[maxn];
 priority_queue< pair<int,int> > pq;
 bool vis[maxn];
 
 void process(int u){
     vis[u] = true;
-    for(int j = 0; j < adj[u].size(); j++){
+    for(int j = 0; j < adj[u].size(); j++)
         if(!vis[adj[u][j]]) 
             pq.push({-wadj[u][j],adj[u][j]});
-    }
 }
 
 void Prim(){
@@ -30,17 +27,4 @@ void Prim(){
         pq.pop();
         if(!vis[u]) mst += w, process(u);
     }
-}
-
-int main(){
-    scanf("%d %d", &n, &m);
-    for(int i = 0; i < m; i++) {
-        int a,b,w;
-        scanf("%d %d %d", &a, &b, &w);
-        adj[a].push_back(b); wadj[a].push_back(w);
-        adj[b].push_back(a); wadj[b].push_back(w);
-    }
-    Prim();
-    cout << mst << endl;
-    return 0;
 }

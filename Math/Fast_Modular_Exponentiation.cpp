@@ -1,10 +1,13 @@
-#include <bits/stdc++.h>
+/**
+ * @file Fast_Modular_Exponentiation.cpp
+ * @author Filipe Herculano Rocha
+ * @date 2018-09-09
+ */
 #define maxn 11111
 #define ii pair<int,int>
 
 using namespace std;
 
-const double EPS = 1e-6;
 const int mod = 1e9+7;
 
 long long fast_mod_exp(long long b, long long exp){
@@ -15,11 +18,4 @@ long long fast_mod_exp(long long b, long long exp){
 		exp /= 2;
 	}
 	return res;
-}
-
-int main(){
-	long long b,exp;
-	scanf("%lld %lld",&b,&exp);
-	printf("%lld\n", fast_mod_exp(b,exp));
-	return 0;
 }
