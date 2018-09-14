@@ -16,4 +16,4 @@ long long euler_phi(long long n){
 	if(n > 1) result -= result/n;
 	return result;
 }
-// euler_phi(n)/2
+// euler_phi(n)/2: Number of relative primes lower then N

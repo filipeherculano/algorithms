@@ -23,7 +23,7 @@ void Tree_Linearization(int u, int p, int d){
 
 void build(int n, int logn){
 	for(int i = 0; i <= logn; i++){
-		for(int j = 0; j+(1 << (i)) <= n ;j++){
+		for(int j = 0; j+(1 << (i)) < n ;j++){
 			if(i != 0){
 				int u = Sparse_Table[i-1][j], v = Sparse_Table[i-1][j+(1 << (i-1))];
 				if(depth[u] < depth[v]) Sparse_Table[i][j] = u;

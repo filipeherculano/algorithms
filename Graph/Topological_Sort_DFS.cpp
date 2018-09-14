@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int n,m;
+int n;
 vector<int> adj[maxn], ts;
 bool vis[maxn];
 
@@ -21,17 +21,10 @@ void dfs(int u){
 	ts.push_back(u);
 }
 
-int main(){
-	scanf("%d %d",&n,&m);
-	for(int i = 0; i < m; i++){
-		int a,b;
-		scanf("%d %d",&a, &b);
-		adj[a].push_back(b);
-	}
+int Topological(){
 	for(int i = 0; i < n; i++)
 		if(!vis[i])
 			dfs(i);
 
 	reverse(ts.begin(), ts.end());
-	return 0;
 }

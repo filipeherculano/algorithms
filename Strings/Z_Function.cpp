@@ -38,7 +38,6 @@ int build(){
 	for(int i = 0; i < join.size(); i++) 
 		if(z[i] == m)
 			printf("Match at %d \n", i-m-1);
-	return 0;
 }
 
 

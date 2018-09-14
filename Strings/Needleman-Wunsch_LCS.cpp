@@ -8,7 +8,7 @@ using namespace std;
 int n,m;
 string a,b;
 
-int main(){
+int lcs(){
 	cin >> a >> b;
 	n = a.size();
 	m = b.size();
@@ -21,6 +21,5 @@ int main(){
 			pd[i][j] = max(pd[i][j],(a[i-1] == b[j-1] ? 1:-INF)+pd[i-1][j-1]);
 		} 
 	}
-	cout << pd[n][m] << endl;
-	return 0;
+	return pd[n][m];
 }

@@ -48,13 +48,10 @@ int rmq(int p, int i, int j, int L, int R){
 		lazy[p] = 0;
 	}
 	if(i <= L && R <= j) return segtree[p];
-
 	int mid = (L+R)/2;
 	int p1 = rmq(p << 1, i, j, L, mid);
 	int p2 = rmq((p << 1)+1, i, j, mid+1, R);
-	
 	if(p1 == -1) return p2;
 	if(p2 == -1) return p1;
-	
 	return max(p1,p2);
 }

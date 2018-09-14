@@ -5,11 +5,12 @@
  */
 #define maxn 11111
 #define ii pair<int,int>
+#define ll long long
 
 using namespace std;
 
-long long fast_exp(long long b, long long exp){
-	long long res = 1;
+ll fast_exp(ll b, ll exp){
+	ll res = 1;
 	while(exp){
 		if(exp&1) res *= b;
 		b *= b;

@@ -23,5 +23,4 @@ int build(){
 	for(int i = 1; i < n; i++) 
 		for(int j = 1; j < n; j++)
 			Prefix_Sum[i][j] += Prefix_Sum[i-1][j] + Prefix_Sum[i][j-1] - Prefix_Sum[i-1][j-1]; 
-	return 0;
 }

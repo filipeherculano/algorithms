@@ -20,18 +20,18 @@ int build(int L, int R){
 	return p;
 }
 
-int update(int old, int L, int R, int pos, int v){
+int point_update(int old, int L, int R, int pos, int v){
 	int p = next_node++;
-	if(L == R && L == pos){
+	if(L == R){
 		st[p] = v;
 		return p;
 	}
 	int mid = (L+R)/2;
 	if(pos <= mid){
 		dir[p] = dir[old];
-		esq[p] = update(esq[old],L,mid,pos,v);
+		esq[p] = point_update(esq[old],L,mid,pos,v);
 	} else {
-		dir[p] = update(dir[old],mid+1,R,pos,v);
+		dir[p] = point_update(dir[old],mid+1,R,pos,v);
 		esq[p] = esq[old];
 	}
 	st[p] = st[esq[p]] + st[dir[p]];

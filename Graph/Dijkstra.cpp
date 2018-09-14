@@ -3,7 +3,6 @@
  * @author Filipe Herculano Rocha
  * @date 2018-09-09
  */
-#include <bits/stdc++.h>
 #define maxn 11111
 #define ii pair<int,int>
 
@@ -11,13 +10,12 @@ using namespace std;
 
 const int INF = 0x3f3f3f3f;
 
-int n,m;
+int n;
 vector<int> adj[maxn], wadj[maxn];
 
 int dijkstra(int s, int e){
 	vector<int> dist(n, INF); dist[s] = 0;
-	priority_queue<ii, vector<ii>, greater<ii> > pq;
-	pq.push({0,s});
+	priority_queue<ii, vector<ii>, greater<ii> > pq; pq.push({0,s});
 	while(!pq.empty()){
 		int u = pq.top().second, d = pq.top().first; pq.pop();
 		if(d > dist[u]) continue;

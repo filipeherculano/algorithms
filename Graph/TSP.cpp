@@ -3,22 +3,13 @@
  * @author Filipe Herculano Rocha
  * @date 2018-09-09
  */
-#include <bits/stdc++.h>
 #define maxn 17
 
 using namespace std;
 
 int n,m,s,TSP[1 << maxn][maxn],mat[maxn][maxn];
 
-int main(){
-	scanf("%d %d",&n,&m);
-	for(int i = 0; i < m; i++){
-		int a,b,w;
-		scanf("%d %d %d",&a,&b,&w);
-		mat[a][b] = mat[b][a] = w;
-	}
-	scanf("%d",&s);
-	memset(TSP,0x3f3f3f3f, sizeof TSP);
+int tsp(){
 	TSP[0][s] = 0; // zero on the origin
 	
 	for(int bit = 0; bit < (1 << n); bit++){
@@ -30,6 +21,6 @@ int main(){
 			}
 		}
 	}
-	cout << TSP[(1 << n)-1][s] << endl;
-	return 0;
+
+	return TSP[(1 << n)-1][s];
 }
