@@ -3,7 +3,6 @@
  * @author Filipe Herculano Rocha
  * @date 2018-08-20
  */
-#include <bits/stdc++.h>
 #define maxn 111111
 
 using namespace std;
