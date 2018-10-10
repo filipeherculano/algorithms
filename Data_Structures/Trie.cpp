@@ -36,7 +36,7 @@ bool query(string a){
 	int node = 0;
 	for(int i = 0; i < (int)a.size(); i++){
 		int nxt = a[i]-'a';
-		if(Trie[node].second && Trie[node].first[nxt]) 
+		if(Trie[node].first[nxt] && Trie[Trie[node].first[nxt]].second) 
 			node = Trie[node].first[nxt];
 		else return false;
 	}
@@ -45,5 +45,5 @@ bool query(string a){
 
 void build(){
 	vector<int> root(26,0);
-	Trie[0].push_back({root,0});
+	Trie.push_back({root,0});
 }
